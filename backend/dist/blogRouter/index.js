@@ -1,0 +1,11 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.blogRouter = void 0;
+const express_1 = require("express");
+const list_1 = require("./list");
+const itemId_1 = require("./itemId");
+const create_1 = require("./create");
+exports.blogRouter = (0, express_1.Router)();
+exports.blogRouter.get("/list", list_1.ListRouterHandler);
+exports.blogRouter.get("/item/:id", itemId_1.ItemIdRouterHandler);
+exports.blogRouter.post("/add", create_1.CreateRouterHandler);
