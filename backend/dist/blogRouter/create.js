@@ -13,18 +13,27 @@ exports.CreateRouterHandler = void 0;
 const connection_1 = require("../connection");
 function CreateRouterHandler(req, res) {
     return __awaiter(this, void 0, void 0, function* () {
-        const newBlog = yield connection_1.prisma.blog.create({
-            data: {
-                title: req.body.title,
-                content: req.body.content,
-            },
-        });
-        console.log("newBlog", newBlog);
-        res.send({
-            message: "Create Router Handler",
-            body: req.body,
-            newBlog,
-        });
+        try {
+            const newBlog = yield connection_1.prisma.blog.create({
+                data: {
+                    title: req.body.title,
+                    content: req.body.content,
+                },
+            });
+            console.log("newBlog", newBlog);
+            res.send({
+                message: "Create Router Handler",
+                body: req.body,
+                newBlog,
+            });
+        }
+        catch (error) {
+            res.status(400).send({
+                message: "Error creating Router Handler!",
+                body: req.body,
+                error,
+            });
+        }
     });
 }
 exports.CreateRouterHandler = CreateRouterHandler;
