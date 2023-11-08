@@ -21,11 +21,8 @@ function CreateRouterHandler(req, res) {
                 },
             });
             console.log("newBlog", newBlog);
-            res.send({
-                message: "Create Router Handler",
-                body: req.body,
-                newBlog,
-            });
+            yield new Promise((resolve) => setTimeout(resolve, 1000));
+            res.send(newBlog);
         }
         catch (error) {
             res.status(400).send({

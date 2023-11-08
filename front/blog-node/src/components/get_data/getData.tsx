@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 
 import { useQuery } from "@tanstack/react-query";
-import { BlogInterface } from "./get_data/get_data_types";
+import { IBlog } from "../get_data/get_data_types";
 
 export function GetData() {
   const [count, setCount] = useState(0);
@@ -12,7 +12,7 @@ export function GetData() {
       const response = await fetch(`http://localhost:3300/blog/item/${count}`);
       const data = await response.json();
       console.log(count);
-      return data as BlogInterface;
+      return data as IBlog;
     },
   });
 

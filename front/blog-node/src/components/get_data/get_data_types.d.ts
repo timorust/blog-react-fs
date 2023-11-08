@@ -1,4 +1,4 @@
-export interface BlogInterface {
+export interface IBlog {
   message: "Router Message";
   params: {
     id: string;
@@ -9,4 +9,10 @@ export interface BlogInterface {
     content: string;
   };
   query: Record<string, unknown>; // This assumes that the 'query' property can have any properties
+}
+
+export interface IBlogContent {
+  id: number;
+  title: string;
+  content: string;
 }
