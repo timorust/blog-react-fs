@@ -21,7 +21,7 @@ export const IBlogZod = z.object({
     title: z.string(),
     content: z.string(),
   }),
-  query: z.record(z.unknown()),
+  query: z.unknown(),
 });
 
 export type IBlogZodType = z.infer<typeof IBlogZod>;

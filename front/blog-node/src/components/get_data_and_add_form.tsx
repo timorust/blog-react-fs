@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 
 import { useMutation, useQuery } from "@tanstack/react-query";
-import { IBlog, IBlogContent, IBlogZod } from "./get_data/get_data_types";
+import { IBlog, IBlogContent } from "./get_data/get_data_types";
 import { useForm } from "react-hook-form";
-
+import { IBlogZod } from "./get_data/get_data_types";
 interface IAddForm {
   title: string;
   content: string;
