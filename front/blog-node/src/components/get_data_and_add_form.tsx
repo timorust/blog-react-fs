@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 
 import { useMutation, useQuery } from "@tanstack/react-query";
-import { IBlog, IBlogContent } from "./get_data/get_data_types";
+import { IBlog, IBlogContent, IBlogZod } from "./get_data/get_data_types";
 import { useForm } from "react-hook-form";
 
 interface IAddForm {
@@ -16,6 +16,8 @@ export function GetDataAndAddForm() {
       const response = await fetch(`http://localhost:3300/blog/item/${count}`);
       const data = await response.json();
       console.log(count);
+      const blogZod = IBlogZod.safeParse(data);
+      if (blogZod.success) return blogZod.data;
       return data as IBlog;
     },
   });
@@ -34,6 +36,7 @@ export function GetDataAndAddForm() {
     },
     onSuccess(data, variables, context) {
       console.log({ data, variables, context });
+      if (data.id === count) getDataFromServer.refetch();
       setCount(data.id);
       // getDataFromServer.refetch();
     },
