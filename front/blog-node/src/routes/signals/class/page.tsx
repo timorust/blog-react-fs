@@ -1,8 +1,9 @@
-import { useSignal } from "@preact/signals-react";
+import { computed, useSignal } from "@preact/signals-react";
 import React from "react";
 
 export function SignalsIntroClass() {
   const count = useSignal(0);
+  const doubleNumber = computed(() => count.value * 2);
   return (
     <main>
       <h1>Signals Intro Class</h1>
@@ -21,6 +22,8 @@ export function SignalsIntroClass() {
       >
         +
       </button>
+      <hr />
+      <p>doubleNumber {doubleNumber.value}</p>
     </main>
   );
 }
