@@ -6,6 +6,8 @@ import { AboutPage } from "./about";
 import { MainProducts } from "./products/main";
 import { ProductId } from "./products/[id]";
 import { LayoutStoryComponent } from "./story/layout";
+import { SignalsIntro } from "./signals/page";
+import { SignalsIntroClass } from "./signals/class/page";
 
 export function RouterComponent() {
   return (
@@ -16,6 +18,8 @@ export function RouterComponent() {
         <Route path=":id" element={<ProductId />} />
         <Route index element={<MainProducts />} />
       </Route>
+      <Route path="/signals" element={<SignalsIntro />} />
+      <Route path="/signals/class" element={<SignalsIntroClass />} />
     </Routes>
   );
 }

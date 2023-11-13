@@ -1,5 +1,5 @@
 import React from "react";
-import { useParams } from "react-router-dom";
+import { NavLink, useParams } from "react-router-dom";
 import { z } from "zod";
 
 export function ProductId() {
@@ -12,5 +12,15 @@ export function ProductId() {
   if (!res.success) return <h1>error params {String(res.error)}</h1>;
   const id = parseInt(res.data);
 
-  return <h1>Product ID {id}</h1>;
+  return (
+    <h1>
+      {/* <NavLink
+        to={"/"}
+        style={({ isActive }) =>
+          isActive ? { backgroundColor: "yellow", color: "green" } : {}
+        }
+      ></NavLink> */}
+      Product ID {id}
+    </h1>
+  );
 }
