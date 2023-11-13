@@ -1,5 +1,6 @@
 import { computed, useSignal } from "@preact/signals-react";
 import React from "react";
+import { IntroSignals } from "../../../components/signalsClass/introSignals";
 
 export function SignalsIntroClass() {
   const count = useSignal(0);
@@ -24,6 +25,7 @@ export function SignalsIntroClass() {
       </button>
       <hr />
       <p>doubleNumber {doubleNumber.value}</p>
+      <IntroSignals />
     </main>
   );
 }
