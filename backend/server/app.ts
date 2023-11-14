@@ -1,6 +1,8 @@
 import express from "express";
 import cors from "cors";
 import { blogRouter } from "./blogRouter";
+import * as trpcExpress from "@trpc/server/adapters/express";
+import { appRouter } from "./trpc";
 
 const app = express();
 app.use(express.json()); // add this so the data is as json
@@ -17,6 +19,14 @@ app.get("/", (request, response) => {
     x: "hey ma",
   });
 });
+
+app.use(
+  "/trpc",
+  trpcExpress.createExpressMiddleware({
+    router: appRouter,
+    // createContext,
+  })
+);
 
 app.listen(3300, () => {
   console.log("I am listening!");

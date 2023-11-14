@@ -1,4 +1,10 @@
 import React from "react";
+import { TrpcComponent } from "../components/trpc/trpcComponent";
 export function HomePage() {
-  return <h1>Home Page</h1>;
+  return (
+    <div>
+      <TrpcComponent />
+      <h1>Home Page</h1>
+    </div>
+  );
 }
