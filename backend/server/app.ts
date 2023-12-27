@@ -14,11 +14,11 @@ app.use(
 );
 app.use("/blog", blogRouter);
 
-app.get("/", (request, response) => {
-  response.send({
-    x: "hey ma",
-  });
-});
+// app.get("/", (request, response) => {
+//   response.send({
+//     x: "hey ma",
+//   });
+// });
 
 app.use(
   "/trpc",
