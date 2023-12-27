@@ -1,16 +1,19 @@
+import { prisma } from "../connection";
 import { publicProcedure, router } from "./trpc";
 // import { createHTTPServer } from "@trpc/server/adapters/standalone";
 export const appRouter = router({
   list: publicProcedure.query(async () => {
     return ["t", "i", "m", "o", "r"];
   }),
+  blogCreate: publicProcedure.mutation(async () => {
+    const newBlog = await prisma.blog.create({
+      data: {
+        title: "req.body.title",
+        content: "req.body.content",
+      },
+    });
+    return newBlog;
+  }),
 });
-// Export type router type signature,
-// NOT the router itself.
-export type AppRouter = typeof appRouter;
-// console.log("trpc router");
-// const server = createHTTPServer({
-//   router: appRouter,
-// });
 
-// server.listen(3500);
+export type AppRouter = typeof appRouter;
